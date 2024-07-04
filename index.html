@@ -43,6 +43,7 @@
             padding: 15px;
             margin-bottom: 20px;
             transition: transform 0.2s, background-color 0.2s;
+            position: relative; /* Ensure position for absolute text */
         }
         .product:hover {
             transform: scale(1.05);
@@ -51,6 +52,15 @@
         .product img {
             max-width: 100%;
             height: auto;
+        }
+        .product label {
+            position: absolute;
+            top: 10px; /* Adjust as needed */
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: bold;
+            font-size: 1.2em;
+            width: 100%;
         }
         .orders {
             margin-top: 20px;

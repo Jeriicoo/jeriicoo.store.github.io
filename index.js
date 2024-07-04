@@ -1,75 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> My Homepage </title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h2> MOTOR SHOP </h2>
-                <p>By Ronnel Nitoya</p>
-                <hr class="hr" />
-            </div>
-        </div>
-        <div class="row">
-            <!-- Product 1 -->
-            <div class="col-4 text-center">
-                <label id="product1">Lebron James Jersey</label>   
-                <img src="images (12).jpeg" style="width:200px;height:250px;" class="img-thumbnail"/><br>
-                <label for="product1" id="price1">150000.00</label>
-                <input type="number" class="form-control" id="qty1" placeholder="Enter quantity"/><br>
-            </div>
-            <!-- Product 2 -->
-            <div class="col-4 text-center">
-                <label id="product2">SUZUKI BURGMAN</label>   
-                <img src="burgman.png" style="width:200px;height:250px;" class="img-thumbnail"/><br>
-                <label for="product2" id="price2">70000.00</label>
-                <input type="number" class="form-control" id="qty2" placeholder="Enter quantity"/><br>
-            </div>
-            <!-- Product 3 -->
-            <div class="col-4 text-center">
-                <label id="product3">YAMAHA AEROX </label>   
-                <img src="aerox.png" style="width:200px;height:250px;" class="img-thumbnail"/><br>
-                <label for="product3" id="price3">150000.00</label>
-                <input type="number" class="form-control" id="qty3" placeholder="Enter quantity"/><br>
-            </div>
-        </div>
-        <div class="row">
-            <!-- Product 4 -->
-            <div class="col-4 text-center">
-                <label id="product4">YAMAHA MIO GEAR</label>   
-                <img src="mio.png" style="width:200px;height:250px;" class="img-thumbnail"/><br>
-                <label for="product4" id="price4">90000.00</label>
-                <input type="number" class="form-control" id="qty4" placeholder="Enter quantity"/><br>
-            </div>
-            <!-- Product 5 -->
-            <div class="col-4 text-center">
-                <label id="product5">SUZUKI RAIDER150</label>   
-                <img src="raider.png" style="width:200px;height:250px;" class="img-thumbnail"/><br>
-                <label for="product5" id="price5">100000.00</label>
-                <input type="number" class="form-control" id="qty5" placeholder="Enter quantity"/><br>
-            </div>
-            <!-- Product 6 -->
-            <div class="col-4 text-center">
-                <label id="product6">SUZUKI SMASH FI</label>   
-                <img src="smash.png" style="width:200px;height:250px;" class="img-thumbnail"/><br>
-                <label for="product6" id="price6">90000.00</label>
-                <input type="number" class="form-control" id="qty6" placeholder="Enter quantity"/><br>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 text-center">
-                <label for="carts">Orders</label><br>
-                <textarea class="form-control" rows="10" id="carts" readonly></textarea><br>
-                <input type="number" class="form-control" id="cash" placeholder="Cash Tendered"/><br>
-                <input type="text" class="form-control border-0" id="change" readonly placeholder="Change"/>
-            </div>
-        </div>
-    </div>
-    <script src="app.js"></script>
-</body>
-</html>
+// Variables for products
+var products = [
+    { id: "product1", qty: "qty1", price: "price1" },
+    { id: "product2", qty: "qty2", price: "price2" },
+    { id: "product3", qty: "qty3", price: "price3" },
+    { id: "product4", qty: "qty4", price: "price4" },
+    { id: "product5", qty: "qty5", price: "price5" },
+    { id: "product6", qty: "qty6", price: "price6" }
+];
+
+var carts = document.getElementById("carts");
+var cash = document.getElementById("cash");
+var change = document.getElementById("change");
+
+// Function to add order
+function addOrder() { 
+    var orderList = '';
+    var total = 0;
+
+    products.forEach(function(product) {
+        var productName = document.getElementById(product.id).textContent;
+        var productQty = document.getElementById(product.qty).value;
+        var productPrice = parseFloat(document.getElementById(product.price).textContent);
+
+        if (parseFloat(productQty) > 0) {
+            var order = `${productQty} pc/s x ${productName} @ ${productPrice.toFixed(2)} each = Php ${(productQty * productPrice).toFixed(2)}\n`;
+            orderList += order;
+            total += productQty * productPrice;
+        }
+    });
+
+    carts.textContent = orderList + `\nTotal: Php ${total.toFixed(2)}`;
+}
+
+// Event listeners for quantity inputs
+products.forEach(function(product) {
+    document.getElementById(product.qty).addEventListener("keyup", addOrder);
+});
+
+// Function to calculate change
+function calculateChange() {
+    var total = parseFloat(carts.textContent.split('Total: Php ')[1]);
+    var cashTendered = parseFloat(cash.value);
+
+    if (cashTendered >= total) {
+        change.value = (cashTendered - total).toFixed(2);
+    } else {
+        change.value = 'Insufficient cash';
+    }
+}
+
+// Event listener for cash input
+cash.addEventListener("keyup", calculateChange);

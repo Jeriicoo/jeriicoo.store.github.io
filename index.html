@@ -46,8 +46,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            height: 100%; /* Ensure equal height */
-            max-height: 400px; /* Set a maximum height to avoid overly large sections */
+            flex: 1; /* Ensure equal width */
         }
         .product:hover {
             transform: scale(1.05);
@@ -71,14 +70,6 @@
         .orders {
             margin-top: 20px;
         }
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        .col-md-4 {
-            display: flex;
-            align-items: stretch;
-        }
     </style>
 </head>
 <body>
@@ -89,24 +80,24 @@
             <hr class="hr">
         </div>
         <div class="row">
-            <div class="col-md-4">
-                <div class="product">
+            <div class="col-md-4 d-flex">
+                <div class="product flex-fill">
                     <label for="product1">James Jersey</label>   
                     <img src="james.png" class="img-thumbnail">
                     <label for="price1">Price: ₱27,000.00</label>
                     <input type="number" class="form-control" id="qty1" placeholder="Enter quantity">
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="product">
+            <div class="col-md-4 d-flex">
+                <div class="product flex-fill">
                     <label for="product2">Bryant Jersey</label>   
                     <img src="kobe.png" class="img-thumbnail">
                     <label for="price2">Price: ₱37,000.00</label>
                     <input type="number" class="form-control" id="qty2" placeholder="Enter quantity">
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="product">
+            <div class="col-md-4 d-flex">
+                <div class="product flex-fill">
                     <label for="product3">Iverson Jersey</label>   
                     <img src="iverson.png" class="img-thumbnail">
                     <label for="price3">Price: ₱47,000.00</label>
@@ -115,24 +106,24 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
-                <div class="product">
+            <div class="col-md-4 d-flex">
+                <div class="product flex-fill">
                     <label for="product4">Irving Jersey</label>   
                     <img src="irving.png" class="img-thumbnail">
                     <label for="price4">Price: ₱57,000.00</label>
                     <input type="number" class="form-control" id="qty4" placeholder="Enter quantity">
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="product">
+            <div class="col-md-4 d-flex">
+                <div class="product flex-fill">
                     <label for="product5">Harden Jersey</label>   
                     <img src="harden.png" class="img-thumbnail">
                     <label for="price5">Price: ₱67,000.00</label>
                     <input type="number" class="form-control" id="qty5" placeholder="Enter quantity">
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="product">
+            <div class="col-md-4 d-flex">
+                <div class="product flex-fill">
                     <label for="product6">Jordan Jersey</label>   
                     <img src="jordan.png" class="img-thumbnail">
                     <label for="price6">Price: ₱77,000.00</label>

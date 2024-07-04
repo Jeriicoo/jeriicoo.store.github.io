@@ -42,7 +42,7 @@
             border-radius: 5px;
             padding: 15px;
             margin-bottom: 20px;
-            transition: transform 0.2s, background-color 0.2s;
+            text-align: center; /* Center text */
             position: relative; /* Ensure position for absolute text */
         }
         .product:hover {
@@ -52,15 +52,16 @@
         .product img {
             max-width: 100%;
             height: auto;
+            margin-bottom: 10px; /* Spacing below image */
         }
         .product label {
-            position: absolute;
-            top: 10px; /* Adjust as needed */
-            left: 50%;
-            transform: translateX(-50%);
             font-weight: bold;
             font-size: 1.2em;
-            width: 100%;
+            display: block; /* Ensure label is block-level */
+        }
+        .product input {
+            width: 80%; /* Adjust width as needed */
+            margin: 0 auto; /* Center align input */
         }
         .orders {
             margin-top: 20px;
@@ -74,43 +75,55 @@
             <hr class="hr">
         </div>
         <div class="row">
-            <div class="col-md-4 text-center product">
-                <label id="product1">James Jersey</label>   
-                <img src="james.png" class="img-thumbnail"><br>
-                <label for="product1" id="price1">27000.00</label>
-                <input type="number" class="form-control" id="qty1" placeholder="Enter quantity"><br>
+            <div class="col-md-4">
+                <div class="text-center product">
+                    <label for="product1">James Jersey</label>   
+                    <img src="james.png" class="img-thumbnail">
+                    <label for="price1">Price: ₱27,000.00</label>
+                    <input type="number" class="form-control" id="qty1" placeholder="Enter quantity">
+                </div>
             </div>
-            <div class="col-md-4 text-center product">
-                <label id="product2">Bryant Jersey</label>   
-                <img src="kobe.png" class="img-thumbnail"><br>
-                <label for="product2" id="price2">37000.00</label>
-                <input type="number" class="form-control" id="qty2" placeholder="Enter quantity"><br>
+            <div class="col-md-4">
+                <div class="text-center product">
+                    <label for="product2">Bryant Jersey</label>   
+                    <img src="kobe.png" class="img-thumbnail">
+                    <label for="price2">Price: ₱37,000.00</label>
+                    <input type="number" class="form-control" id="qty2" placeholder="Enter quantity">
+                </div>
             </div>
-            <div class="col-md-4 text-center product">
-                <label id="product3">Iverson Jersey</label>   
-                <img src="iverson.png" class="img-thumbnail"><br>
-                <label for="product3" id="price3">47000.00</label>
-                <input type="number" class="form-control" id="qty3" placeholder="Enter quantity"><br>
+            <div class="col-md-4">
+                <div class="text-center product">
+                    <label for="product3">Iverson Jersey</label>   
+                    <img src="iverson.png" class="img-thumbnail">
+                    <label for="price3">Price: ₱47,000.00</label>
+                    <input type="number" class="form-control" id="qty3" placeholder="Enter quantity">
+                </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4 text-center product">
-                <label id="product4">Irving Jersey</label>   
-                <img src="irving.png" class="img-thumbnail"><br>
-                <label for="product4" id="price4">57000.00</label>
-                <input type="number" class="form-control" id="qty4" placeholder="Enter quantity"><br>
+            <div class="col-md-4">
+                <div class="text-center product">
+                    <label for="product4">Irving Jersey</label>   
+                    <img src="irving.png" class="img-thumbnail">
+                    <label for="price4">Price: ₱57,000.00</label>
+                    <input type="number" class="form-control" id="qty4" placeholder="Enter quantity">
+                </div>
             </div>
-            <div class="col-md-4 text-center product">
-                <label id="product5">Harden Jersey</label>   
-                <img src="harden.png" class="img-thumbnail"><br>
-                <label for="product5" id="price5">67000.00</label>
-                <input type="number" class="form-control" id="qty5" placeholder="Enter quantity"><br>
+            <div class="col-md-4">
+                <div class="text-center product">
+                    <label for="product5">Harden Jersey</label>   
+                    <img src="harden.png" class="img-thumbnail">
+                    <label for="price5">Price: ₱67,000.00</label>
+                    <input type="number" class="form-control" id="qty5" placeholder="Enter quantity">
+                </div>
             </div>
-            <div class="col-md-4 text-center product">
-                <label id="product6">Jordan Jersey</label>   
-                <img src="jordan.png" class="img-thumbnail"><br>
-                <label for="product6" id="price6">77000.00</label>
-                <input type="number" class="form-control" id="qty6" placeholder="Enter quantity"><br>
+            <div class="col-md-4">
+                <div class="text-center product">
+                    <label for="product6">Jordan Jersey</label>   
+                    <img src="jordan.png" class="img-thumbnail">
+                    <label for="price6">Price: ₱77,000.00</label>
+                    <input type="number" class="form-control" id="qty6" placeholder="Enter quantity">
+                </div>
             </div>
         </div>
         <div class="row orders">

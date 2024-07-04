@@ -42,8 +42,11 @@
             border-radius: 5px;
             padding: 15px;
             margin-bottom: 20px;
-            text-align: center; /* Center text */
-            position: relative; /* Ensure position for absolute text */
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
         }
         .product:hover {
             transform: scale(1.05);
@@ -52,19 +55,24 @@
         .product img {
             max-width: 100%;
             height: auto;
-            margin-bottom: 10px; /* Spacing below image */
+            margin-bottom: 10px;
         }
         .product label {
             font-weight: bold;
             font-size: 1.2em;
-            display: block; /* Ensure label is block-level */
         }
         .product input {
-            width: 80%; /* Adjust width as needed */
-            margin: 0 auto; /* Center align input */
+            width: 80%;
+            margin: 0 auto;
         }
         .orders {
             margin-top: 20px;
+        }
+        .row {
+            display: flex;
+        }
+        .col-md-4 {
+            display: flex;
         }
     </style>
 </head>
@@ -76,7 +84,7 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <div class="text-center product">
+                <div class="product">
                     <label for="product1">James Jersey</label>   
                     <img src="james.png" class="img-thumbnail">
                     <label for="price1">Price: ₱27,000.00</label>
@@ -84,7 +92,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="text-center product">
+                <div class="product">
                     <label for="product2">Bryant Jersey</label>   
                     <img src="kobe.png" class="img-thumbnail">
                     <label for="price2">Price: ₱37,000.00</label>
@@ -92,7 +100,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="text-center product">
+                <div class="product">
                     <label for="product3">Iverson Jersey</label>   
                     <img src="iverson.png" class="img-thumbnail">
                     <label for="price3">Price: ₱47,000.00</label>
@@ -102,7 +110,7 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <div class="text-center product">
+                <div class="product">
                     <label for="product4">Irving Jersey</label>   
                     <img src="irving.png" class="img-thumbnail">
                     <label for="price4">Price: ₱57,000.00</label>
@@ -110,7 +118,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="text-center product">
+                <div class="product">
                     <label for="product5">Harden Jersey</label>   
                     <img src="harden.png" class="img-thumbnail">
                     <label for="price5">Price: ₱67,000.00</label>
@@ -118,7 +126,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="text-center product">
+                <div class="product">
                     <label for="product6">Jordan Jersey</label>   
                     <img src="jordan.png" class="img-thumbnail">
                     <label for="price6">Price: ₱77,000.00</label>

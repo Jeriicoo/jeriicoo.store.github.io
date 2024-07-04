@@ -19,7 +19,7 @@
             <!-- Product 1 -->
             <div class="col-4 text-center">
                 <label id="product1">Lebron James Jersey</label>   
-                <img src="nmax.png" style="width:200px;height:250px;" class="img-thumbnail"/><br>
+                <img src="images (12).jpeg" style="width:200px;height:250px;" class="img-thumbnail"/><br>
                 <label for="product1" id="price1">150000.00</label>
                 <input type="number" class="form-control" id="qty1" placeholder="Enter quantity"/><br>
             </div>

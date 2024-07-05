@@ -30,10 +30,10 @@
         }
         @keyframes slideIn {
             0% {
-                transform: translateX(100%);
+                transform: opacity 0.5;
             }
             100% {
-                transform: translateX(-100%);
+                transform: opacity 0.5;
             }
         }
         .product {
@@ -44,10 +44,11 @@
             margin-bottom: 20px;
             text-align: center;
             display: flex;
-            animation: reverse;
             flex-direction: column;
             justify-content: space-between;
             flex: 1; /* Ensure equal width */
+            animation: transform;
+            
         }
         .product:hover {
             transform: scale(1.05);

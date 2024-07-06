@@ -85,7 +85,7 @@ function calculateChange() {
             change.value = '₱ ' + changeAmount.toFixed(2);
         } else {
             let deficitAmount = totalPrice - cashTendered;
-            change.value = 'Kulang ng ₱ ' + deficitAmount.toFixed(2);
+            change.value = '-' + deficitAmount.toFixed(2);
         }
     } else {
         change.value = '';

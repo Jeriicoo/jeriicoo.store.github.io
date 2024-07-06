@@ -27,72 +27,69 @@ var total = document.getElementById("total")
 var cash = document.getElementById("cash")
 var change = document.getElementById("change")
 
-
 function addOrder(){
-    carts.textContent=""
+    carts.textContent = "";
     var totalPrice = 0;
 
     if (parseFloat(qty1.value) > 0){
-        var order = qty1.value.toString() + ' pc/s x '+ price1.textContent + '------'+ product1.textContent + '------ Php' + (parseFloat(qty1.value)*parseFloat(price1.textContent)) + '\n'
-        //carts.textContent += carts.value.toString() + "\n";
-        carts.textContent += order
+        var order = qty1.value.toString() + ' pc/s x ' + price1.textContent + '------' + product1.textContent + '------ Php' + (parseFloat(qty1.value) * parseFloat(price1.textContent)) + '\n';
+        carts.textContent += order;
         var qty = parseFloat(qty1.value);
         var price = parseFloat(price1.textContent);
         totalPrice += qty * price;
     }
     if (parseFloat(qty2.value) > 0){
-        var order= qty2.value.toString() + ' pc/s x '+ price2.textContent + '------'+ product2.textContent + '------ Php' + (parseFloat(qty2.value)*parseFloat(price2.textContent)) + '\n'
-        //carts.textContent += carts.value.toString() + "\n";
-        carts.textContent += order
+        var order = qty2.value.toString() + ' pc/s x ' + price2.textContent + '------' + product2.textContent + '------ Php' + (parseFloat(qty2.value) * parseFloat(price2.textContent)) + '\n';
+        carts.textContent += order;
         var qty = parseFloat(qty2.value);
         var price = parseFloat(price2.textContent);
         totalPrice += qty * price;
     }
     if (parseFloat(qty3.value) > 0){
-        var order = qty3.value.toString() + ' pc/s x '+ price3.textContent + '------'+ product3.textContent + '------ Php' + (parseFloat(qty3.value)*parseFloat(price3.textContent)) + '\n'
-        //carts.textContent += carts.value.toString() + "\n";
-        carts.textContent += order
+        var order = qty3.value.toString() + ' pc/s x ' + price3.textContent + '------' + product3.textContent + '------ Php' + (parseFloat(qty3.value) * parseFloat(price3.textContent)) + '\n';
+        carts.textContent += order;
         var qty = parseFloat(qty3.value);
         var price = parseFloat(price3.textContent);
         totalPrice += qty * price;
     }
     if (parseFloat(qty4.value) > 0){
-        var order= qty4.value.toString() + ' pc/s x '+ price4.textContent + '------'+ product4.textContent + '------ Php' + (parseFloat(qty4.value)*parseFloat(price4.textContent)) + '\n'
-        //carts.textContent += carts.value.toString() + "\n";
-        carts.textContent += order
+        var order = qty4.value.toString() + ' pc/s x ' + price4.textContent + '------' + product4.textContent + '------ Php' + (parseFloat(qty4.value) * parseFloat(price4.textContent)) + '\n';
+        carts.textContent += order;
         var qty = parseFloat(qty4.value);
         var price = parseFloat(price4.textContent);
         totalPrice += qty * price;
     }
     if (parseFloat(qty5.value) > 0){
-        var order = qty5.value.toString() + ' pc/s x '+ price5.textContent + '------'+ product5.textContent + '------ Php' + (parseFloat(qty5.value)*parseFloat(price5.textContent)) + '\n'
-        //carts.textContent += carts.value.toString() + "\n";
-        carts.textContent += order
+        var order = qty5.value.toString() + ' pc/s x ' + price5.textContent + '------' + product5.textContent + '------ Php' + (parseFloat(qty5.value) * parseFloat(price5.textContent)) + '\n';
+        carts.textContent += order;
         var qty = parseFloat(qty5.value);
         var price = parseFloat(price5.textContent);
         totalPrice += qty * price;
     }
     if (parseFloat(qty6.value) > 0){
-        var order= qty6.value.toString() + ' pc/s x '+ price6.textContent + '------'+ product6.textContent + '------ Php' + (parseFloat(qty6.value)*parseFloat(price6.textContent)) + '\n'
-        //carts.textContent += carts.value.toString() + "\n";
-        carts.textContent += order
+        var order = qty6.value.toString() + ' pc/s x ' + price6.textContent + '------' + product6.textContent + '------ Php' + (parseFloat(qty6.value) * parseFloat(price6.textContent)) + '\n';
+        carts.textContent += order;
         var qty = parseFloat(qty6.value);
         var price = parseFloat(price6.textContent);
         totalPrice += qty * price;
     }
     total.value = '₱ ' + totalPrice.toFixed(2);
-
 }
 
 function calculateChange() {
-  let totalPrice = parseFloat(total.value.replace('₱ ', ''));
-  let cashTendered = parseFloat(cash.value);
-  if (!isNaN(totalPrice) && !isNaN(cashTendered) && cashTendered >= totalPrice) {
-      let changeAmount = cashTendered - totalPrice;
-      change.value = '₱ ' + changeAmount.toFixed(2);
-  } else {
-      change.value = '';
-  }
+    let totalPrice = parseFloat(total.value.replace('₱ ', ''));
+    let cashTendered = parseFloat(cash.value);
+    if (!isNaN(totalPrice) && !isNaN(cashTendered)) {
+        if (cashTendered >= totalPrice) {
+            let changeAmount = cashTendered - totalPrice;
+            change.value = '₱ ' + changeAmount.toFixed(2);
+        } else {
+            let deficitAmount = totalPrice - cashTendered;
+            change.value = 'Kulang ng ₱ ' + deficitAmount.toFixed(2);
+        }
+    } else {
+        change.value = '';
+    }
 }
 
 qty1.addEventListener("keyup", addOrder);
